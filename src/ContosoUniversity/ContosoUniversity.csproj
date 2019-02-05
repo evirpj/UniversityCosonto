@@ -163,6 +163,22 @@
     <Compile Include="Migrations\201411022351064_Inheritance.Designer.cs">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902051200217_initial.cs" />
+    <Compile Include="Migrations\201902051200217_initial.Designer.cs">
+      <DependentUpon>201902051200217_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902051654235_addedemail2.cs" />
+    <Compile Include="Migrations\201902051654235_addedemail2.Designer.cs">
+      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902051655190_addedemail3.cs" />
+    <Compile Include="Migrations\201902051655190_addedemail3.Designer.cs">
+      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902051712464_addedemail4.cs" />
+    <Compile Include="Migrations\201902051712464_addedemail4.Designer.cs">
+      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -266,6 +282,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411022351064_Inheritance.resx">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051200217_initial.resx">
+      <DependentUpon>201902051200217_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051654235_addedemail2.resx">
+      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051655190_addedemail3.resx">
+      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051712464_addedemail4.resx">
+      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,6 +17,13 @@ namespace ContosoUniversity.Models
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
+
+        public string MailAdresse { get; set; }
+
+        public string Login { get; set; }
+        public string Password { get; set; }
+
+
         [Display(Name = "Full Name")]
         public string FullName
         {

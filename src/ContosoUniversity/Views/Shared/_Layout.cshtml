@@ -31,7 +31,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    @if (ViewBag.Title == "Home Page")
+                    @if (ViewBag.Title == "Home Page" || ViewBag.Title == "Login")
                     {
                         <li>@Html.ActionLink("Login", "Login", "Login")</li>
                         <li>@Html.ActionLink("Create Account", "CreateAccount", "CreateAccount")</li>

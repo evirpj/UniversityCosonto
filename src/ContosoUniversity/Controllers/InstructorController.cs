@@ -13,6 +13,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace ContosoUniversity.Controllers
 {
+   
     public class InstructorController : Controller
     {
         private SchoolContext db = new SchoolContext();
@@ -20,6 +21,14 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor
         public ActionResult Index(int? id, int? courseID)
         {
+            ////If no user connected, redirect to Homepage
+            ////See if I can use [Authorize] instead
+            //if (Session["UserName"] is null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+
+
             var viewModel = new InstructorIndexData();
 
             viewModel.Instructors = db.Instructors

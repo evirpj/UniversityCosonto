@@ -17,8 +17,18 @@ namespace ContosoUniversity.Controllers
         private SchoolContext db = new SchoolContext();
 
         // GET: Course
+        
         public ActionResult Index(int? SelectedDepartment)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
             var departments = db.Departments.OrderBy(q => q.Name).ToList();
             ViewBag.SelectedDepartment = new SelectList(departments, "DepartmentID", "Name", SelectedDepartment);
             int departmentID = SelectedDepartment.GetValueOrDefault();

@@ -20,7 +20,7 @@ namespace ContosoUniversity.Migrations
             var students = new List<Student>
             {
                 new Student { FirstMidName = "Carson",   LastName = "Alexander", 
-                    EnrollmentDate = DateTime.Parse("2010-09-01") },
+                    EnrollmentDate = DateTime.Parse("2010-09-01"),Login="toto",Password="titi" },
                 new Student { FirstMidName = "Meredith", LastName = "Alonso",    
                     EnrollmentDate = DateTime.Parse("2012-09-01") },
                 new Student { FirstMidName = "Arturo",   LastName = "Anand",     
@@ -44,7 +44,7 @@ namespace ContosoUniversity.Migrations
             var instructors = new List<Instructor>
             {
                 new Instructor { FirstMidName = "Kim",     LastName = "Abercrombie", 
-                    HireDate = DateTime.Parse("1995-03-11") },
+                    HireDate = DateTime.Parse("1995-03-11"),Login="tata",Password="123" },
                 new Instructor { FirstMidName = "Fadi",    LastName = "Fakhouri",    
                     HireDate = DateTime.Parse("2002-07-06") },
                 new Instructor { FirstMidName = "Roger",   LastName = "Harui",       
