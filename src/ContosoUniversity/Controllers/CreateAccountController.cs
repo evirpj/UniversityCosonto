@@ -27,15 +27,16 @@ namespace ContosoUniversity.Controllers
 
         public ActionResult CreateAccount([Bind(Include = "AccountType")] string accountType, string LastName, string FirstMidName, string MailAdresse, string Login, string Password)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View();
             }
 
             if (ModelState.IsValid)
             {
-                if (accountType == "Instructor")
+                if (accountType == "Instructor" && !db.People.Any(u => u.Login == Login))
                 {
+
                     Instructor instructor = new Instructor();
                     instructor.LastName = LastName;
                     instructor.FirstMidName = FirstMidName;
@@ -45,11 +46,16 @@ namespace ContosoUniversity.Controllers
                     instructor.HireDate = DateTime.Parse(DateTime.Now.ToString());
                     db.Instructors.Add(instructor);
                     db.SaveChanges();
-                    //instructor.ID est recupere ici
+                    //instructor.ID 
                     return RedirectToAction("Index", "Instructor");
+
+                   
                 }
-                if (accountType == "Student")
+
+                else if (accountType == "Student" && !db.People.Any(u => u.Login == Login))
                 {
+
+
                     Student student = new Student();
                     student.LastName = LastName;
                     student.FirstMidName = FirstMidName;
@@ -61,10 +67,17 @@ namespace ContosoUniversity.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index", "Student");
                 }
-                else return View();
-           }
+                else
+                {
+                    TempData["Error"] = "This login already exists";
+                }  
+                
+                
+            }  
+        
 
-            return View();
-        }
+        return View(); 
+        }    
+        
     }
 }
