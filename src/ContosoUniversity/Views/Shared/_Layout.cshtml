@@ -45,9 +45,15 @@
                         <li>@Html.ActionLink("Courses", "Index", "Course")</li>
                         <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
                         <li>@Html.ActionLink("Departments", "Index", "Department")</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Login",null, new { @class = "btn btn-default" })</li>
+                        @*<div>
+                    <li class="pull-right">@Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-default" })</li>
+                </div>*@
                     }
                 </ul>
+                @if (Session["UserName"] != null)
+                {
+                    <span class="pull-right">@Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-default" } )</span>
+                }
             </div>
         </div>
     </div>
