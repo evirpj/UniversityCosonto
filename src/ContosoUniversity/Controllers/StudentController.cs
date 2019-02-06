@@ -20,8 +20,16 @@ namespace ContosoUniversity.Controllers
         }
 
         // GET: Student
-        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                //return View("Index", );
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
@@ -69,6 +77,13 @@ namespace ContosoUniversity.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +99,13 @@ namespace ContosoUniversity.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -94,6 +116,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LastName, FirstMidName, EnrollmentDate")]Student student)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             try
             {
                 if (ModelState.IsValid)
@@ -115,6 +144,13 @@ namespace ContosoUniversity.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -134,6 +170,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -160,6 +203,13 @@ namespace ContosoUniversity.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -181,6 +231,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             try
             {
                 Student student = db.Students.Find(id);

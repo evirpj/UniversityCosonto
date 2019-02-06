@@ -30,6 +30,12 @@ namespace ContosoUniversity.Controllers
 
         public ActionResult About()
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             // Commenting out LINQ to show how to do the same thing in SQL.
             //IQueryable<EnrollmentDateGroup> = from student in db.Students
             //           group student by student.EnrollmentDate into dateGroup
@@ -49,7 +55,12 @@ namespace ContosoUniversity.Controllers
             return View(data.ToList());
         }
         public ActionResult Contact()
-        {
+        {//If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Message = "Your contact page.";
 
             return View();

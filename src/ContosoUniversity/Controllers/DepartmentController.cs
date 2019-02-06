@@ -20,6 +20,12 @@ namespace ContosoUniversity.Controllers
         // GET: Department
         public async Task<ActionResult> Index()
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var departments = db.Departments.Include(d => d.Administrator);
             return View(await departments.ToListAsync());
         }
@@ -27,6 +33,13 @@ namespace ContosoUniversity.Controllers
         // GET: Department/Details/5
         public async Task<ActionResult> Details(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -49,6 +62,13 @@ namespace ContosoUniversity.Controllers
         // GET: Department/Create
         public ActionResult Create()
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.InstructorID = new SelectList(db.Instructors, "ID", "FullName");
             return View();
         }
@@ -60,6 +80,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "DepartmentID,Name,Budget,StartDate,InstructorID")] Department department)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Departments.Add(department);
@@ -74,6 +101,13 @@ namespace ContosoUniversity.Controllers
         // GET: Department/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -94,6 +128,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int? id, byte[] rowVersion)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             string[] fieldsToBind = new string[] { "Name", "Budget", "StartDate", "InstructorID", "RowVersion" };
 
             if (id == null)
@@ -168,6 +209,13 @@ namespace ContosoUniversity.Controllers
         // GET: Department/Delete/5
         public async Task<ActionResult> Delete(int? id, bool? concurrencyError)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -200,6 +248,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(Department department)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             try
             {
                 db.Entry(department).State = EntityState.Deleted;

@@ -23,13 +23,14 @@ namespace ContosoUniversity.Controllers
         {
             using(SchoolContext db = new SchoolContext())
             {
-                //boolan true or flase
+                //FirstOrDefault returns a person, check if it is a student or instructor
               
                 if (db.People.FirstOrDefault(u => u.Login == login && u.Password == password) is Student)
                 {
                     Student user = new Student();
                     user.Login = login;
                     user.Password = password;
+                    //Session is not empty, it means you are connected
                     Session["UserName"] = user;
 
                     return RedirectToAction("Index", "Student");
@@ -51,6 +52,14 @@ namespace ContosoUniversity.Controllers
            
 
             return RedirectToAction("Login");
+        }
+
+        public ActionResult Logout()
+        { 
+
+            Session["UserName"] = null;
+
+            return RedirectToAction("Index", "Home"); ;
         }
     }
 }

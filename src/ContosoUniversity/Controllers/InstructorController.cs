@@ -21,12 +21,12 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor
         public ActionResult Index(int? id, int? courseID)
         {
-            ////If no user connected, redirect to Homepage
-            ////See if I can use [Authorize] instead
-            //if (Session["UserName"] is null)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
 
             var viewModel = new InstructorIndexData();
@@ -67,6 +67,12 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor/Details/5
         public ActionResult Details(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +87,12 @@ namespace ContosoUniversity.Controllers
 
         public ActionResult Create()
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var instructor = new Instructor();
             instructor.Courses = new List<Course>();
             PopulateAssignedCourseData(instructor);
@@ -91,6 +103,12 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LastName,FirstMidName,HireDate,OfficeAssignment")]Instructor instructor, string[] selectedCourses)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (selectedCourses != null)
             {
                 instructor.Courses = new List<Course>();
@@ -114,6 +132,13 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor/Edit/5
         public ActionResult Edit(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -154,6 +179,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int? id, string[] selectedCourses)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -224,6 +256,12 @@ namespace ContosoUniversity.Controllers
         // GET: Instructor/Delete/5
         public ActionResult Delete(int? id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -241,6 +279,13 @@ namespace ContosoUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //If no user connected, redirect to Homepage
+            //See if I can use [Authorize] instead
+            if (Session["UserName"] is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Instructor instructor = db.Instructors
               .Include(i => i.OfficeAssignment)
               .Where(i => i.ID == id)

@@ -31,7 +31,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    @if (ViewBag.Title == "Home Page" || ViewBag.Title == "Login")
+                    @* Condition: if you are logged in, show all actionlinks, if not you can only see login and create account *@
+                    @if (Session["UserName"] == null)
                     {
                         <li>@Html.ActionLink("Login", "Login", "Login")</li>
                         <li>@Html.ActionLink("Create Account", "CreateAccount", "CreateAccount")</li>
@@ -44,6 +45,7 @@
                         <li>@Html.ActionLink("Courses", "Index", "Course")</li>
                         <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
                         <li>@Html.ActionLink("Departments", "Index", "Department")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login",null, new { @class = "btn btn-default" })</li>
                     }
                 </ul>
             </div>
