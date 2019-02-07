@@ -2,6 +2,7 @@
 using ContosoUniversity.Models;
 using PagedList;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace ContosoUniversity.Controllers
             //See if I can use [Authorize] instead
             if (Session["UserName"] is null)
             {
-                //return View("Index", );
+               
                 return RedirectToAction("Index", "Home");
             }
 
@@ -84,6 +85,8 @@ namespace ContosoUniversity.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -93,6 +96,9 @@ namespace ContosoUniversity.Controllers
             {
                 return HttpNotFound();
             }
+
+            
+
             return View(student);
         }
 

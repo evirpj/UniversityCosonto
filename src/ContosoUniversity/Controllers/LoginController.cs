@@ -63,7 +63,7 @@ namespace ContosoUniversity.Controllers
 
             Session["UserName"] = null;
 
-            return RedirectToAction("Index", "Home"); ;
+            return RedirectToAction("Index", "Home"); 
         }
     }
 }
