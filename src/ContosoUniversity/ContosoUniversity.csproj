@@ -51,10 +51,10 @@
       <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\CreateAccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -164,21 +165,17 @@
     <Compile Include="Migrations\201411022351064_Inheritance.Designer.cs">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902051200217_initial.cs" />
-    <Compile Include="Migrations\201902051200217_initial.Designer.cs">
-      <DependentUpon>201902051200217_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201902051523154_FormulaireCreationCompte.cs" />
+    <Compile Include="Migrations\201902051523154_FormulaireCreationCompte.Designer.cs">
+      <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902051654235_addedemail2.cs" />
-    <Compile Include="Migrations\201902051654235_addedemail2.Designer.cs">
-      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.cs" />
+    <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.Designer.cs">
+      <DependentUpon>201902070904374_AdresseMailLoginPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902051655190_addedemail3.cs" />
-    <Compile Include="Migrations\201902051655190_addedemail3.Designer.cs">
-      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902051712464_addedemail4.cs" />
-    <Compile Include="Migrations\201902051712464_addedemail4.Designer.cs">
-      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
+    <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.cs" />
+    <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.Designer.cs">
+      <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -257,6 +254,7 @@
     <Content Include="Views\Course\UpdateCourseCredits.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\CreateAccount\CreateAccount.cshtml" />
     <Content Include="Views\Enrollments\Create.cshtml" />
     <Content Include="Views\Enrollments\Delete.cshtml" />
     <Content Include="Views\Enrollments\Details.cshtml" />
@@ -289,17 +287,14 @@
     <EmbeddedResource Include="Migrations\201411022351064_Inheritance.resx">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902051200217_initial.resx">
-      <DependentUpon>201902051200217_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902051523154_FormulaireCreationCompte.resx">
+      <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902051654235_addedemail2.resx">
-      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902070904374_AdresseMailLoginPassword.resx">
+      <DependentUpon>201902070904374_AdresseMailLoginPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902051655190_addedemail3.resx">
-      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902051712464_addedemail4.resx">
-      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902070922489_AddresseMailLoginPassword2.resx">
+      <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
