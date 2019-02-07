@@ -165,9 +165,18 @@
     <Compile Include="Migrations\201411022351064_Inheritance.Designer.cs">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902051523154_FormulaireCreationCompte.cs" />
-    <Compile Include="Migrations\201902051523154_FormulaireCreationCompte.Designer.cs">
-      <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
+    <Compile Include="Migrations\201902051200217_initial.cs" />
+    <Compile Include="Migrations\201902051654235_addedemail2.cs" />
+    <Compile Include="Migrations\201902051654235_addedemail2.Designer.cs">
+      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902051655190_addedemail3.cs" />
+    <Compile Include="Migrations\201902051655190_addedemail3.Designer.cs">
+      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902051712464_addedemail4.cs" />
+    <Compile Include="Migrations\201902051712464_addedemail4.Designer.cs">
+      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.cs" />
     <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.Designer.cs">
@@ -176,6 +185,14 @@
     <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.cs" />
     <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.Designer.cs">
       <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071536058_MailNotRequired.cs" />
+    <Compile Include="Migrations\201902071536058_MailNotRequired.Designer.cs">
+      <DependentUpon>201902071536058_MailNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071548009_MailAdresseRequired.cs" />
+    <Compile Include="Migrations\201902071548009_MailAdresseRequired.Designer.cs">
+      <DependentUpon>201902071548009_MailAdresseRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -256,10 +273,6 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\CreateAccount\CreateAccount.cshtml" />
     <Content Include="Views\Enrollments\Create.cshtml" />
-    <Content Include="Views\Enrollments\Delete.cshtml" />
-    <Content Include="Views\Enrollments\Details.cshtml" />
-    <Content Include="Views\Enrollments\Edit.cshtml" />
-    <Content Include="Views\Enrollments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,14 +300,26 @@
     <EmbeddedResource Include="Migrations\201411022351064_Inheritance.resx">
       <DependentUpon>201411022351064_Inheritance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902051523154_FormulaireCreationCompte.resx">
-      <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902051654235_addedemail2.resx">
+      <DependentUpon>201902051654235_addedemail2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051655190_addedemail3.resx">
+      <DependentUpon>201902051655190_addedemail3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902051712464_addedemail4.resx">
+      <DependentUpon>201902051712464_addedemail4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902070904374_AdresseMailLoginPassword.resx">
       <DependentUpon>201902070904374_AdresseMailLoginPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902070922489_AddresseMailLoginPassword2.resx">
       <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071536058_MailNotRequired.resx">
+      <DependentUpon>201902071536058_MailNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071548009_MailAdresseRequired.resx">
+      <DependentUpon>201902071548009_MailAdresseRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

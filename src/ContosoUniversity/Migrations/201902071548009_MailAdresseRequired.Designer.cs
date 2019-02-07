@@ -7,13 +7,13 @@ namespace ContosoUniversity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class FormulaireCreationCompte : IMigrationMetadata
+    public sealed partial class MailAdresseRequired : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FormulaireCreationCompte));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MailAdresseRequired));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902051523154_FormulaireCreationCompte"; }
+            get { return "201902071548009_MailAdresseRequired"; }
         }
         
         string IMigrationMetadata.Source

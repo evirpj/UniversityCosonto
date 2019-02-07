@@ -15,30 +15,7 @@ namespace ContosoUniversity.Controllers
     {
         private SchoolContext db = new SchoolContext();
 
-        //GET: Enrollments
-        public ActionResult Index()
-        {
-            var enrollments = db.Enrollments.Include(e => e.Course).Include(e => e.Student);
-            return View(enrollments.ToList());
-        }
-
-        //GET: Enrollments/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Enrollment enrollment = db.Enrollments.Find(id);
-            if (enrollment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(enrollment);
-        }
-
-        // GET: Enrollments/Create
-        //public ActionResult Create(int? id)
+        
         public ActionResult Create()
         {
             if (Session["UserName"] is null)
@@ -47,14 +24,13 @@ namespace ContosoUniversity.Controllers
             }
 
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title");
-            ViewBag.StudentID = new SelectList(db.People, "ID", "LastName");
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "LastName");
             
             return View();
         }
 
-        // POST: Enrollments/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Create the enrollment
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Create(int id,[Bind(Include = "EnrollmentID,CourseID,Grade")] Enrollment enrollment)
@@ -85,66 +61,8 @@ namespace ContosoUniversity.Controllers
             return RedirectToAction("Create");
         }
 
-        // GET: Enrollments/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Enrollment enrollment = db.Enrollments.Find(id);
-        //    if (enrollment == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title", enrollment.CourseID);
-        //    ViewBag.StudentID = new SelectList(db.People, "ID", "LastName", enrollment.StudentID);
-        //    return View(enrollment);
-        //}
-
-        //// POST: Enrollments/Edit/5
-        //// Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        //// plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "EnrollmentID,CourseID,StudentID")] Enrollment enrollment)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(enrollment).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title", enrollment.CourseID);
-        //    ViewBag.StudentID = new SelectList(db.People, "ID", "LastName", enrollment.StudentID);
-        //    return View(enrollment);
-        //}
-
-        //// GET: Enrollments/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Enrollment enrollment = db.Enrollments.Find(id);
-        //    if (enrollment == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(enrollment);
-        //}
-
-        //// POST: Enrollments/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Enrollment enrollment = db.Enrollments.Find(id);
-        //    db.Enrollments.Remove(enrollment);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        
+       
 
         protected override void Dispose(bool disposing)
         {
