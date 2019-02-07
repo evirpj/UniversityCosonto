@@ -168,6 +168,14 @@
     <Compile Include="Migrations\201902051523154_FormulaireCreationCompte.Designer.cs">
       <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.cs" />
+    <Compile Include="Migrations\201902070904374_AdresseMailLoginPassword.Designer.cs">
+      <DependentUpon>201902070904374_AdresseMailLoginPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.cs" />
+    <Compile Include="Migrations\201902070922489_AddresseMailLoginPassword2.Designer.cs">
+      <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -275,6 +283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902051523154_FormulaireCreationCompte.resx">
       <DependentUpon>201902051523154_FormulaireCreationCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902070904374_AdresseMailLoginPassword.resx">
+      <DependentUpon>201902070904374_AdresseMailLoginPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902070922489_AddresseMailLoginPassword2.resx">
+      <DependentUpon>201902070922489_AddresseMailLoginPassword2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

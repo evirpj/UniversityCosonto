@@ -67,10 +67,16 @@ namespace ContosoUniversity.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index", "Student");
                 }
-                else
-                {
-                    TempData["Error"] = "This login already exists";
-                }  
+               
+                 TempData["error"]= "This login already exists";
+                    
+                
+                List<string> accountTypes = new List<string>();
+                accountTypes.Add("Student");
+                accountTypes.Add("Instructor");
+                ViewBag.Message = accountTypes;
+                return View();
+                //return RedirectToAction("CreateAccount");
                 
                 
             }  

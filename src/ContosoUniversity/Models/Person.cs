@@ -27,12 +27,15 @@ namespace ContosoUniversity.Models
         public string FirstMidName { get; set; }
 
         //Email (expressions regulieres a ajouter)
+        [Required]
         public string MailAdresse { get; set; }
 
         //Login
+        [Required]
         public string Login { get; set; }
 
         //Password
+        [Required]
         public string Password { get; set; }
 
 
