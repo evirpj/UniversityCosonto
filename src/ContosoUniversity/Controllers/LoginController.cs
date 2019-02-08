@@ -28,8 +28,7 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Login(string login, string password)
         {
-            //using(SchoolContext db = new SchoolContext())
-            {
+            
                 //FirstOrDefault returns a person, check if it is a student or instructor
               
                 if (db.People.FirstOrDefault(u => u.Login == login && u.Password == password) is Student)
@@ -56,7 +55,7 @@ namespace ContosoUniversity.Controllers
                     TempData["error"] = "Invalid Login or Password";
                 }
 
-            }
+            
            
 
             return RedirectToAction("Login");
