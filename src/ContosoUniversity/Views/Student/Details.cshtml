@@ -60,7 +60,7 @@
             </dd>
         </dl>
         <div>
-            <span class="pull-right">@Html.ActionLink("Enroll to a new Course", "Create", "Enrollments", null, new { @class = "btn btn-success" })</span>
+            <span class="pull-right">@Html.ActionLink("Enroll to a new Course", "Create", "Enrollments", new { id = Model.ID }, new { @class = "btn btn-success" })</span>
         </div>
     </div>
 

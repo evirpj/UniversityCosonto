@@ -16,7 +16,7 @@ namespace ContosoUniversity.Controllers
         private SchoolContext db = new SchoolContext();
 
         
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             if (Session["UserName"] is null)
             {
@@ -24,7 +24,7 @@ namespace ContosoUniversity.Controllers
             }
 
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title");
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "LastName");
+            //ViewBag.StudentID = new SelectList(db.Students, "ID", "LastName");
             
             return View();
         }
@@ -33,8 +33,8 @@ namespace ContosoUniversity.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create(int id,[Bind(Include = "EnrollmentID,CourseID,Grade")] Enrollment enrollment)
-        public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID")] Enrollment enrollment)
+        public ActionResult Create(int id,[Bind(Include = "EnrollmentID,CourseID")] Enrollment enrollment)
+        //public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID")] Enrollment enrollment)
         {
             if (Session["UserName"] is null)
             {
@@ -43,9 +43,10 @@ namespace ContosoUniversity.Controllers
 
             if (ModelState.IsValid)
             {
+                enrollment.StudentID = id;
                 if (!db.Enrollments.Where(o => o.StudentID == enrollment.StudentID && o.CourseID == enrollment.CourseID).Any())
                 {
-                    //enrollment.StudentID = id;
+                    
                     db.Enrollments.Add(enrollment);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Student");

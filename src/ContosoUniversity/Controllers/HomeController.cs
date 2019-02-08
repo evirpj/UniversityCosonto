@@ -19,9 +19,7 @@ namespace ContosoUniversity.Controllers
         public ActionResult Index()
         {
 
-            List<Course> ListCourses = this.db.Courses
-                .Include(i => i.Instructors)
-                .ToList();
+            List<Course> ListCourses = db.Courses.ToList();
                 
 
 
