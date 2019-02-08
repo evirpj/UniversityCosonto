@@ -24,7 +24,6 @@ namespace ContosoUniversity.Controllers
             return View();
         }
         [HttpPost]
-
         public ActionResult CreateAccount([Bind(Include = "AccountType")] string accountType, string LastName, string FirstMidName, string MailAdresse, string Login, string Password)
         {
             if (!ModelState.IsValid)
@@ -47,6 +46,7 @@ namespace ContosoUniversity.Controllers
                     db.Instructors.Add(instructor);
                     db.SaveChanges();
                     //instructor.ID 
+                    Session["UserName"] = instructor;
                     return RedirectToAction("Index", "Instructor");
 
                    
@@ -65,6 +65,7 @@ namespace ContosoUniversity.Controllers
                     student.EnrollmentDate = DateTime.Parse(DateTime.Now.ToString());
                     db.Students.Add(student);
                     db.SaveChanges();
+                    Session["UserName"] = student;
                     return RedirectToAction("Index", "Student");
                 }
                
@@ -76,14 +77,21 @@ namespace ContosoUniversity.Controllers
                 accountTypes.Add("Instructor");
                 ViewBag.Message = accountTypes;
                 return View();
-                //return RedirectToAction("CreateAccount");
+                
                 
                 
             }  
         
 
         return View(); 
-        }    
-        
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
