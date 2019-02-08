@@ -30,14 +30,12 @@ namespace ContosoUniversity.Controllers
         public ActionResult Login(string login, string password)
         {
             
-            {
                 //FirstOrDefault returns a person, check if it is a student or instructor
               
                 if (db.People.FirstOrDefault(u => u.Login == login && u.Password == password) is Student)
-                {   // Store login and password in a new empty student
-                    Student user = new Student();
-                    user.Login = login;
-                    user.Password = password;
+                {   
+                    Person user = db.People.FirstOrDefault(u => u.Login == login && u.Password == password);
+                    
                     //Session is not empty, it means you are connected
                     Session["UserName"] = user;
                     // Redirects you to your HomePage
@@ -45,10 +43,9 @@ namespace ContosoUniversity.Controllers
                 }
                 else if (db.People.FirstOrDefault(u => u.Login == login && u.Password == password) is Instructor)
                 {
-                    // Store login and password in a new empty instructor
-                    Instructor user = new Instructor();
-                    user.Login = login;
-                    user.Password = password;
+                    
+                    Person user = db.People.FirstOrDefault(u => u.Login == login && u.Password == password);
+                    
                     //Session is not empty, it means you are connected
                     Session["UserName"] = user;
                     // Redirects you to your HomePage
@@ -59,7 +56,7 @@ namespace ContosoUniversity.Controllers
                     TempData["error"] = "Invalid Login or Password";
                 }
 
-            }
+            
            
 
             return RedirectToAction("Login");
