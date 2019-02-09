@@ -24,8 +24,8 @@ namespace ContosoUniversity.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateAccount([Bind(Include = "AccountType")] string accountType, string LastName, string FirstMidName, string MailAdresse, string Login, string Password)
-        {
+        public ActionResult CreateAccount(string accountType, string LastName, string FirstMidName, string MailAdresse, string Login, string Password)
+        { 
             if (!ModelState.IsValid)
             {
                 return View();

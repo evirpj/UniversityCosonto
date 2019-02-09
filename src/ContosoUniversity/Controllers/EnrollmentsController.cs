@@ -25,6 +25,10 @@ namespace ContosoUniversity.Controllers
 
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title");
             //ViewBag.StudentID = new SelectList(db.Students, "ID", "LastName");
+
+            //StdName is the name of the student who has this ID
+            string StdName = db.Students.FirstOrDefault(s => s.ID == id).LastName;
+            ViewBag.StudentName = StdName;
             
             return View();
         }
@@ -49,7 +53,8 @@ namespace ContosoUniversity.Controllers
                     
                     db.Enrollments.Add(enrollment);
                     db.SaveChanges();
-                    return RedirectToAction("Index", "Student");
+                    //returns to student's details page
+                    return RedirectToAction("Details", "Student", new { id });
                 }
                 else
                 {
@@ -57,8 +62,7 @@ namespace ContosoUniversity.Controllers
                 }
             }
 
-            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title", enrollment.CourseID);
-            ViewBag.StudentID = new SelectList(db.People, "ID", "LastName", enrollment.StudentID);
+            
             return RedirectToAction("Create");
         }
 
