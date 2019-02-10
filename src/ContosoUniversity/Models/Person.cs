@@ -26,10 +26,12 @@ namespace ContosoUniversity.Models
 
         //Login
         [Required]
+        [RegularExpression("[a-zA-Z0-9]*", ErrorMessage = "Enter only letters and/or numbers.")]
         public string Login { get; set; }
 
         //Password
         [Required]
+        [RegularExpression("[a-zA-Z0-9]*", ErrorMessage = "Enter only letters and/or numbers.")]
         public string Password { get; set; }
 
 
