@@ -17,12 +17,14 @@ namespace ContosoUniversity.Controllers
         [HttpGet]
         public ActionResult CreateAccount()
         {
+            // Create a list of the two possible types, instructor and student
             List<string> accountTypes = new List<string>();
             accountTypes.Add("Student");
             accountTypes.Add("Instructor");
             ViewBag.Message = accountTypes;
             return View();
         }
+
         [HttpPost]
         public ActionResult CreateAccount(string accountType, string LastName, string FirstMidName, string MailAdresse, string Login, string Password)
         { 
