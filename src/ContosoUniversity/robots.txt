@@ -1,0 +1,6 @@
+# The rules apply to all agents
+User-agent: *
+# Disable access to all folders
+Disallow: / 
+# "Allow" overrides "disallow" only for the folder Home/Index, agents are allowed to have access to Index
+Allow: /Home/Index 
