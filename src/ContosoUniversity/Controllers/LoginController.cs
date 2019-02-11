@@ -39,7 +39,7 @@ namespace ContosoUniversity.Controllers
                     //Session is not empty, it means you are connected
                     Session["UserName"] = user;
                     // Redirects you to your HomePage
-                    return RedirectToAction("Index", "Student");
+                    return RedirectToAction("Details", "Student", new { id = user.ID});
                 }
                 else if (db.People.FirstOrDefault(u => u.Login == login && u.Password == password) is Instructor)
                 {
@@ -49,7 +49,7 @@ namespace ContosoUniversity.Controllers
                     //Session is not empty, it means you are connected
                     Session["UserName"] = user;
                     // Redirects you to your HomePage
-                    return RedirectToAction("Index", "Instructor");
+                    return RedirectToAction("Details", "Instructor", new { id = user.ID });
                 }
                 else
                 {   // Prints error message

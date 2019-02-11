@@ -46,7 +46,7 @@ namespace ContosoUniversity.Tests.Controllers
 
             
             Assert.That(result, Is.Not.Null);
-            Assert.That(result.RouteValues["action"], Is.EqualTo("Index"));
+            Assert.That(result.RouteValues["action"], Is.EqualTo("Details"));
 
             //Assert.That(controllerToTest.Session["UserName"], Is.Not.Null);
            
@@ -70,7 +70,7 @@ namespace ContosoUniversity.Tests.Controllers
 
 
             Assert.That(result, Is.Not.Null);
-            Assert.That(result.RouteValues["action"], Is.EqualTo("Index"));
+            Assert.That(result.RouteValues["action"], Is.EqualTo("Details"));
 
             //Assert.That(controllerToTest.Session["UserName"], Is.Not.Null);
 
