@@ -10,6 +10,13 @@ namespace ContosoUniversity.Controllers
 {
     public class LoginController : Controller
     {
+        private SchoolContext db = new SchoolContext();
+        public SchoolContext DbContext
+        {
+            get { return db; }
+            set { db = value; }
+        }
+
         // GET: Login 
         // Returns only the view with the form to be filled to login
         public ActionResult Login()
@@ -22,7 +29,7 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Login(string login, string password)
         {
-            using(SchoolContext db = new SchoolContext())
+            
             {
                 //FirstOrDefault returns a person, check if it is a student or instructor
               
