@@ -19,16 +19,13 @@ namespace ContosoUniversity.Models
         [Column("FirstName")]
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
-
-        //Email (expressions regulieres a ajouter)
+        //Email 
         [Required]
         public string MailAdresse { get; set; }
-
         //Login
         [Required]
         [RegularExpression("[a-zA-Z0-9]*", ErrorMessage = "Enter only letters and/or numbers.")]
         public string Login { get; set; }
-
         //Password
         [Required]
         [RegularExpression("[a-zA-Z0-9]*", ErrorMessage = "Enter only letters and/or numbers.")]

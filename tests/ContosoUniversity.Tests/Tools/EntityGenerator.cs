@@ -26,6 +26,7 @@ namespace ContosoUniversity.Tests.Tools
             };
 
             this.dbContext.Students.Add(student);
+            dbContext.SaveChanges();
             return student;
         }
 
@@ -70,5 +71,6 @@ namespace ContosoUniversity.Tests.Tools
             dbContext.SaveChanges();
             return instructor;
         }
+
     }
 }

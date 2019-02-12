@@ -64,7 +64,7 @@ namespace ContosoUniversity.Tests.Controllers
             DateTime testHireDate = DateTime.Now;
 
             EntityGenerator generator = new EntityGenerator(dbContext);
-            Student student = generator.CreateStudentForLogin(testLastName, testFirstName, testLogin, testPwd, testMailAdresse, testHireDate);
+            Instructor instructor = generator.CreateInstructorForLogin(testLastName, testFirstName, testLogin, testPwd, testMailAdresse, testHireDate);
 
             var result = controllerToTest.Login(testLogin, testPwd) as RedirectToRouteResult;
 

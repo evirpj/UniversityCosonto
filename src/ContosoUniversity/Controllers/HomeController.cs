@@ -18,11 +18,7 @@ namespace ContosoUniversity.Controllers
 
         public ActionResult Index()
         {
-
             List<Course> ListCourses = db.Courses.ToList();
-                
-
-
             return View(ListCourses);
         }
 

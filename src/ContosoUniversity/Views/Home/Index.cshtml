@@ -2,19 +2,12 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-
 <div class="jumbotron">
     <h1>Contoso University</h1>
 </div>
-
-
     <body>
-
-
     <h3>Available Courses:</h3>
-    
-        
+       
     <table class="table">
         <tr>
             <th>
@@ -24,37 +17,24 @@
                 @Html.DisplayNameFor(model => model.Instructors)
             </th>
         </tr>
-
         @foreach (var item in Model)
         {
         <tr>
-            @*Display the list of courses*@
-            <td>
+            <td>  @*Display the list of courses*@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
-                @*Display instructors corresponding to each course*@
+            <td> @*Display instructors corresponding to each course*@
                 @{
                     foreach (var instructor in item.Instructors)
                     {
-                        @instructor.LastName @: @instructor.FirstMidName<br/>
-                        }
+                        @instructor.LastName @: @instructor.FirstMidName<br />
                     }
-             </td>
+                }
+            </td>
         </tr>
         }
-        
-
     </table>
-    
-
 </body>
 
 
-<div class="container body-content">
 
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Contoso University</p>
-    </footer>
-</div>

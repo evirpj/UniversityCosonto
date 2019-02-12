@@ -15,36 +15,29 @@ namespace ContosoUniversity.Controllers
     {
         private SchoolContext db = new SchoolContext();
 
-        
+        // GET
         public ActionResult Create(int? id)
         {
             if (Session["UserName"] is null)
             {
                 return RedirectToAction("Index", "Home");
             }
-
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title");
-            //ViewBag.StudentID = new SelectList(db.Students, "ID", "LastName");
-
             //StdName is the name of the student who has this ID
             string StdName = db.Students.FirstOrDefault(s => s.ID == id).LastName;
-            ViewBag.StudentName = StdName;
-            
+            ViewBag.StudentName = StdName;   
             return View();
         }
 
         // POST: Create the enrollment
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(int id,[Bind(Include = "EnrollmentID,CourseID")] Enrollment enrollment)
-        //public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID")] Enrollment enrollment)
         {
             if (Session["UserName"] is null)
             {
                 return RedirectToAction("Index", "Home");
             }
-
             if (ModelState.IsValid)
             {
                 enrollment.StudentID = id;
@@ -60,9 +53,7 @@ namespace ContosoUniversity.Controllers
                 {
                     TempData["EnrollError"] = "You already subscribed to this course !";
                 }
-            }
-
-            
+            } 
             return RedirectToAction("Create");
         }
 

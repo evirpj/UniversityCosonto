@@ -11,7 +11,15 @@ namespace ContosoUniversity.Controllers
 {
     public class CreateAccountController : Controller
     {
-        SchoolContext db = new SchoolContext();
+        private SchoolContext db = new SchoolContext();
+        public SchoolContext DbContext
+        {
+            get { return db; }
+            set { db = value; }
+        }
+
+        
+            
 
         // GET: CreateAccount
         [HttpGet]
@@ -32,12 +40,10 @@ namespace ContosoUniversity.Controllers
             {
                 return View();
             }
-
             if (ModelState.IsValid)
             {
                 if (accountType == "Instructor" && !db.People.Any(u => u.Login == Login))
                 {
-
                     Instructor instructor = new Instructor();
                     instructor.LastName = LastName;
                     instructor.FirstMidName = FirstMidName;
@@ -47,17 +53,11 @@ namespace ContosoUniversity.Controllers
                     instructor.HireDate = DateTime.Parse(DateTime.Now.ToString());
                     db.Instructors.Add(instructor);
                     db.SaveChanges();
-                    //instructor.ID 
                     Session["UserName"] = instructor;
                     return RedirectToAction("Index", "Instructor");
-
-                   
                 }
-
                 else if (accountType == "Student" && !db.People.Any(u => u.Login == Login))
                 {
-
-
                     Student student = new Student();
                     student.LastName = LastName;
                     student.FirstMidName = FirstMidName;
@@ -70,22 +70,17 @@ namespace ContosoUniversity.Controllers
                     Session["UserName"] = student;
                     return RedirectToAction("Index", "Student");
                 }
-               
-                 TempData["error"]= "This login already exists";
-                    
-                
-                List<string> accountTypes = new List<string>();
-                accountTypes.Add("Student");
-                accountTypes.Add("Instructor");
-                ViewBag.Message = accountTypes;
-                return View();
-                
-                
-                
+                else
+                {
+                    TempData["error"] = "This login already exists";
+                    List<string> accountTypes = new List<string>();
+                    accountTypes.Add("Student");
+                    accountTypes.Add("Instructor");
+                    ViewBag.Message = accountTypes;
+                    return View();
+                }
             }  
-        
-
-        return View(); 
+            return View(); 
         }
         protected override void Dispose(bool disposing)
         {
